@@ -46,7 +46,7 @@ nosetests.xml
 coverage.xml
 *.cover
 .hypothesis/
-.pytest_cache/
+city_app/.pytest_cache/
 
 # Translations
 *.mo
@@ -88,13 +88,13 @@ celerybeat-schedule
 
 # Environments
 .env
-.venv
+../.venv
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
-
+.venv/
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -111,4 +111,6 @@ venv.bak/
 dmypy.json
 .idea
 *.swp
-static_collected
+static_backend.
+static_backend/
+media/

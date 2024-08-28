@@ -1,0 +1,13 @@
+.dockerignore
+.git
+../.gitignore
+.idea
+.pre-commit-config.yaml
+Dockerfile
+db.sqlite3
+docker-compose.yaml
+poetry.lock
+requirements.txt
+.venv
+venv
+*.pyc

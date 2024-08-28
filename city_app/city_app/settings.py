@@ -1,16 +1,17 @@
-import environ
+import os
 from pathlib import Path
 
-env = environ.Env(DEBUG=(bool, False))
+import environ
+
+env = environ.Env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 environ.Env.read_env(BASE_DIR / ".env")
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
-DEBUG = env("DEBUG")
+DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "localhost:8000"]
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -22,7 +23,7 @@ INSTALLED_APPS = [
     "django.contrib.gis",
     'drf_yasg',
     'rest_framework',
-    'cities',
+    'modules.cities',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'city_app.wsgi.application'
 
-
 DATABASES = {
     "default": {
         "ENGINE": "django.contrib.gis.db.backends.postgis",
@@ -66,7 +66,6 @@ DATABASES = {
         "PORT": 5432,
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -83,7 +82,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -92,7 +90,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 STATIC_URL = "/static_backend/"
 STATIC_ROOT = BASE_DIR / "static_backend"
 
@@ -100,3 +97,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal309.dll'
+
+GEOCODER_USER_AGENT = 'my_custom_user_agent'
